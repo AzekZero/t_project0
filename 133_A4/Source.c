@@ -9,11 +9,9 @@
 
 //loops - parameters
 int loop_program;
-int loop_zodiacyear;
 
 //loops - inputs
 char loop_program_input[64];
-char loop_zodiacyear_input[64];
 
 //static data
 int zodiacyear_cutoff = 1900;
@@ -40,8 +38,8 @@ int main() {
 		if (zodiacyear > 1899) 
 		{
 			temp_zodiacyear = (zodiacyear - 1900);
+			zodiacyear_rem = 0; //clears variable for repeated queries
 			zodiacyear_rem = temp_zodiacyear % 12;
-			//printf("%d", zodiacyear_rem); //DEBUG
 			switch (zodiacyear_rem) 
 			{
 			case 0:
@@ -90,9 +88,8 @@ int main() {
 		while (loop_program > 0)
 		{
 			printf("Do you want to try again?(y/n): ");
-			fgets(loop_zodiacyear_input, 64, stdin);
-			//sscanf_s(loop_zodiacyear_input, "%d", &loop_zodiacyear);
-			switch (tolower(loop_zodiacyear_input[0])) 
+			fgets(loop_program_input, 64, stdin);
+			switch (tolower(loop_program_input[0]))
 			{
 			case 'y':
 				loop_program = 0;
